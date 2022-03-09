@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Currency Converter</title>
+</head>
+<body>
+    <header class="header">
+        <h1 class="header__title">Currency Converter.</h1> 
+    </header>
+    <main class="main">
+        <div class="converter">
+            <div class="convert__wrapper">
+                <form class="converter__form form" name="converter">
+                    <div class="converter__block converter__block--position_top">
+                        <div class="form__section">
+                            <label class="form__label" for="amount">Amount</label>
+                            <input class="form__input input-number" id="amount" type="number" name="amount" maxlength="10" min="0" autocomplete="off">
+                            <span class="form__prompt form__prompt--mistake_amount">Enter amount!</span>
+                        </div>
+                        <div class="form__section">
+                            <label class="form__label" for="from">From</label>
+                            <select class="form__select" id="from">
+                            </select>
+                        </div>
+                        <div class="form__section">
+                            <label class="form__label" for="to">To</label>
+                            <select class="form__select" id="to">
+                            </select>
+                        </div>
+                        <input class="form__input input-button" type="button" value="convert">
+                    </div>
+                    <div class="converter__block converter__block--position_center results">
+                        <div class="converter__loader">
+                            <img class="loader" src="./assets/loader.gif" alt="loader">
+                        </div>
+                        <div class="converter__exchange-results exchange-results">
+                            <span class="exchange-results__result-first"> 4567 euro =</span>
+                            <span class="exchange-results__result-second"> 465798 usd</span>
+                        </div>
+                        <div class="converter__exchange-rates exchange-rates">
+                            <span class="exchange-rates__rate-first"> 1 euro = 3 usd</span>
+                            <span class="exchange-rates__rate-second"> 1 usd = 0,33 euro</span>
+                        </div>
+                    </div>
+                    <div class="converter__block converter__block--position_bottom description">
+                        <p class="description__text">
+                            The currency convertsion corresponds to the current exchange rates.
+                        </p>
+                        <span class="description__short-text">to select date</span>
+                        <button class="description__button">click here</button>
+                        <div class="form__section form__section--type_date">
+                            <label class="form__label" for="date">Select date</label>
+                            <input class="form__input input-datepicker" id="date" type="date" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
+                            <span class="form__prompt form__prompt--mistake_date">You can't see into the future!</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main> 
+    <footer></footer>
+    <script src="script.js"></script>
+</body>
+</html>
