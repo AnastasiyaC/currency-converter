@@ -1,4 +1,5 @@
 const curencies = ['BYN', 'USD', 'EUR', 'CNY', 'RUB'];
+const numberOfDaysHistory = 14;
 
 const API_BASE = 'https://v6.exchangerate-api.com/v6/';
 const API_KEY = '39e27a1a9001cc932c683639';
@@ -99,6 +100,12 @@ function checkFutureDate() {
     return dateToday <= selectedDay;
 };
 
+function checkPastDate(days) {
+    const dateT = new Date();
+
+    return dateT.setTime( dateT.getTime() - days * 86400000 );
+}
+
 function showCheckedDate(date) {
     const futureDayChecked = checkFutureDate();
 
@@ -110,11 +117,17 @@ function showCheckedDate(date) {
         converterForm.date.value = currentRates.currentDate;
     }
     else {
-        const checkDate = new Date(converterForm.date.valueAsNumber);
+        const checkedDate = new Date(converterForm.date.valueAsNumber);
+        const lastPastDate = new Date(checkPastDate(numberOfDaysHistory));
         const year = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-        const dateFormat = `${checkDate.getDate()}th of ${year[checkDate.getMonth()]} ${checkDate.getFullYear()}`;
+        const dateFormat = (date) => `${date.getDate()}th of ${year[date.getMonth()]} ${date.getFullYear()}`;
 
-        dateText.textContent = `The currency convertsion corresponds to ${dateFormat} exchange rates.`;
+        if(checkedDate < lastPastDate) {
+            dateText.textContent = `The currency convertsion corresponds to ${dateFormat(lastPastDate)} exchange rates.`;
+        }
+        else {
+            dateText.textContent = `The currency convertsion corresponds to ${dateFormat(checkedDate)} exchange rates.`;
+        }
     }
 };
 
@@ -133,7 +146,6 @@ function showDateMistake() {
     const futureDayChecked = checkFutureDate();
 
     if (futureDayChecked) {
-        console.log('+')
         addClass(converterForm, 'form--mistake_date');
     }  
     if (!futureDayChecked) {
