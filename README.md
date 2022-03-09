@@ -1,6 +1,6 @@
 # Currency Converter
 
-[Currency Converter](https://anastasiyac.github.io/currency-converter/)
+[Currency Converter DEMO](https://anastasiyac.github.io/currency-converter/)
 
 
 ### Technologies
