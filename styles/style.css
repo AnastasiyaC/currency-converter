@@ -1,0 +1,232 @@
+* {
+    box-sizing: border-box;
+}
+  
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    height: 80px;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(33, 27, 27, 0.9);
+    color: aliceblue;
+}
+
+.header__title {
+    text-transform: uppercase;
+}
+
+.main {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(138, 138, 138, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.converter {
+    width: 70%;
+    height: calc(100vh - 220px);
+    background-color: rgb(242, 247, 253);
+    border-radius: 5px;
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+
+.convert__wrapper {
+    width: 90%;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.converter__form {
+    height: 100%;
+    position: relative;
+}
+
+.converter__block {
+    width: 100%;
+    position: absolute;
+}
+
+.converter__block--position_top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    top: 5%;
+}
+
+.converter__block--position_center {
+    top: 30%;
+}
+
+.converter__block--position_bottom {
+    bottom: 5%;
+}
+
+.form__section {
+    display: flex;
+    flex-direction: column;
+    width: 28%;
+    position: relative;
+}
+
+.form__section--type_date {
+    opacity: 0;
+    margin-top: 10px;  
+}
+
+.form__input,
+.form__select {
+    width: 100%;
+    margin-top: 6px;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 6px;
+    box-shadow: rgb(0 17 51 / 5%) 0px 3px 15px;
+    padding: 12px;
+    color: rgb(10, 18, 37);
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.3s linear;
+}
+
+.input-number::-webkit-outer-spin-button,
+.input-number::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.input-button {
+    width: 12%;
+    background-color: rgba(73, 163, 73, 0.7);
+    text-transform: uppercase;
+}
+
+.input-button:hover {
+    background-color: rgba(73, 163, 73, 1);
+}
+
+.form__prompt {
+    width: 100%;
+    position: absolute; 
+    padding: 4px 12px;
+    background-color: rgba(167, 29, 29, 0.1);
+    border-radius: 6px;
+    display: none;
+    opacity: 0;
+    animation: 0.7s linear apperance forwards;
+}
+
+.form__prompt--mistake_amount {
+    top: calc(100% + 4px);
+}
+
+.form__prompt--mistake_date {
+    bottom: 0;
+    left: calc(100% + 8px);
+}
+
+.form--mistake_amount .form__prompt--mistake_amount {
+    display: block;
+}
+
+.form--mistake_date .form__prompt--mistake_date {
+    display: block;
+}
+
+.description__text {
+    font-size: 21px;
+    margin: 0;
+}
+
+.description__short-text {
+    font-size: 14px;
+    margin-top: 6px;
+}
+
+.description__button {
+    font-size: 14px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: rgba(146, 47, 47, 0.7);
+    cursor: pointer;
+    transition: all 0.3s linear;
+}
+
+.description__button:hover {
+    color: rgba(146, 47, 47, 1);
+}
+
+.description--active > .form__section {
+    animation: 0.7s linear apperance forwards;
+}
+
+.converter__exchange-results,
+.converter__exchange-rates {
+    display: none;
+    flex-direction: column;
+    opacity: 0;
+    animation: 0.7s linear apperance forwards;
+}
+
+@keyframes apperance {
+    100% { 
+      opacity: 1;
+    }
+}
+
+.converter__exchange-results {
+    font-size: 24px;
+}
+
+.exchange-results__result-second {
+    font-size: 3rem;
+    font-weight: 500;
+    color: rgb(46, 60, 87);
+}
+
+.converter__exchange-rates {
+    margin-top: 30px;
+}
+
+.form--loading  .converter__loader {
+    display: block;
+}
+
+.form--loading  .converter__exchange-results,
+.form--loading  .converter__exchange-rates {
+    display: none;
+}
+
+.form--showing  .converter__loader {
+    display: none;
+}
+
+.form--showing  .converter__exchange-results,
+.form--showing  .converter__exchange-rates {
+    display: flex;
+}
+
+.converter__loader {
+    height: 120px;
+    width: 120px;
+    opacity: 0.5;
+    display: none;
+}
+
+.loader {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+
+
